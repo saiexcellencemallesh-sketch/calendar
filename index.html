@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhakthi Heritage 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --deep-red: #8b0000;
+            --text-dark: #1a1108;
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body, html { margin: 0; padding: 0; background: #000; font-family: 'Lora', serif; overflow-x: hidden; }
+
+        /* --- Lock Screen & Experience Logic --- */
+        #lock-screen {
+            position: fixed; inset: 0; z-index: 10000; background: #000;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; color: var(--gold); padding: 20px;
+        }
+        .scan-prompt { border: 2px dashed var(--gold); padding: 40px; border-radius: 10px; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+
+        .month-experience { display: none; min-height: 100vh; width: 100%; position: relative; animation: fadeIn 1.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; filter: blur(10px); } to { opacity: 1; filter: blur(0); } }
+
+        /* --- Global Monthly Elements --- */
+        .container { max-width: 900px; margin: 0 auto; padding: 80px 20px; z-index: 5; position: relative; }
+        h1 { font-family: 'Cinzel', serif; font-size: clamp(2rem, 8vw, 4rem); margin-bottom: 10px; }
+        .hero-portrait { width: 300px; height: 300px; border-radius: 50%; border: 8px solid white; box-shadow: 0 15px 40px rgba(0,0,0,0.3); margin: 30px auto; display: block; object-fit: cover; }
+        .content-card { background: rgba(255,255,255,0.9); padding: 40px; border-radius: 2px; color: var(--text-dark); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .audio-wrap { margin-top: 30px; text-align: center; }
+        audio { width: 100%; filter: sepia(20%) contrast(90%); }
+
+        /* --- Immersive Monthly Themes --- */
+        .jan { background: #fdf5e6; color: #d35400; --accent: #e67e22; } /* Bhakti Orange */
+        .feb { background: #fff5f5; color: #8b0000; --accent: #c0392b; } /* Tulsidas Red */
+        .mar { background: #fdfaff; color: #4b0082; --accent: #8e44ad; } /* Andal Purple */
+        .apr { background: #f4fdfb; color: #00695c; --accent: #16a085; } /* Tyagaraja Teal */
+        .may { background: #f0f7ff; color: #1a5276; --accent: #2980b9; } /* Sakkubai Blue */
+        .jun { background: #f7f9f9; color: #2c3e50; --accent: #7f8c8d; } /* Kabir Grey */
+        .jul { background: #fcf3cf; color: #7e5109; --accent: #d35400; } /* Tukaram Terracotta */
+        .aug { background: #ffffff; color: #2c3e50; --accent: #bdc3c7; } /* Sharada Maa White */
+        .sep { background: #f0fff4; color: #064e3b; --accent: #27ae60; } /* Mirabai Peacock */
+        .oct { background: #f4f4f4; color: #1c2833; --accent: #34495e; } /* Akka Forest */
+        .nov { background: #fffdf0; color: #7d6608; --accent: #f1c40f; } /* Nanak Gold */
+        .dec { background: #1a1a1a; color: #f1c40f; --accent: #d4af37; } /* Yourself Midnight */
+        .dec .content-card { background: #262626; color: #eee; }
+
+        /* --- Animations --- */
+        .floating-element { position: absolute; opacity: 0.3; animation: float 10s infinite linear; pointer-events: none; }
+        @keyframes float { from { transform: translateY(100vh) rotate(0deg); } to { transform: translateY(-20vh) rotate(360deg); } }
+
+        /* --- Negligible Navigation --- */
+        .scan-next {
+            position: fixed; bottom: 20px; right: 20px; font-size: 10px; font-family: sans-serif;
+            text-decoration: none; color: rgba(0,0,0,0.2); transition: 0.3s;
+        }
+        .scan-next:hover { color: var(--gold); }
+    </style>
+</head>
+<body>
+
+    <div id="lock-screen">
+        <div class="scan-prompt">
+            <h1>Bhakthi Heritage 2026</h1>
+            <p>Scan the QR code on your calendar<br>to unlock this month's experience.</p>
+        </div>
+    </div>
+
+    <section id="jan" class="month-experience jan">
+        <div class="container">
+            <h1>January: What is Bhakthi?</h1>
+            <div class="content-card">
+                <img src="https://images.unsplash.com/photo-1545063914-a1a6ec821c88?auto=format&fit=crop&w=800" class="hero-portrait">
+                <p>Bhakti is the nectar of divine love. It is the bridge between the seeker and the source. This month, explore the essence of total surrender.</p>
+                <div class="audio-wrap">
+                    <p><i>Ambient: Om Chanting</i></p>
+                    <audio controls loop><source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg"></audio>
+                </div>
+            </div>
+        </div>
+        <a href="javascript:void(0)" onclick="promptScan('February')" class="scan-next">Next Month: Scan QR &rsaquo;</a>
+    </section>
+
+    <section id="feb" class="month-experience feb">
+        <div class="container">
+            <h1>February: Tulsidas</h1>
+            <div class="content-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU6os3H0y_x_WXAWiI4-cpIemsFXqYceZ5Rg&s" class="hero-portrait">
+                <p>The composer of <i>Ramcharitmanas</i>, Tulsidas Ji showed us that devotion to Sri Rama is the ultimate path to peace in this age.</p>
+                <div class="audio-wrap">
+                    <p><i>Chant: Shri Ram Jai Ram</i></p>
+                    <audio controls loop><source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg"></audio>
+                </div>
+            </div>
+        </div>
+        <a href="javascript:void(0)" onclick="promptScan('March')" class="scan-next">Next Month: Scan QR &rsaquo;</a>
+    </section>
+
+    <section id="mar" class="month-experience mar">
+        <div class="container">
+            <h1>March: Andalamma</h1>
+            <div class="content-card">
+                <img src="https://tirumalatirupatiyatra.in/wp-content/uploads/2024/03/Andal-or-Goda-Devi-Dressed-up-as-Child-1.jpg" class="hero-portrait">
+                <p>Goda Devi, the earth-born goddess, who bound the Lord with her garland of verses. Explore the Tiruppavai.</p>
+                <div class="audio-wrap">
+                    <p><i>Chant: Tiruppavai Pasuram</i></p>
+                    <audio controls loop><source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg"></audio>
+                </div>
+            </div>
+        </div>
+        <a href="javascript:void(0)" onclick="promptScan('April')" class="scan-next">Next Month: Scan QR &rsaquo;</a>
+    </section>
+
+    <section id="apr" class="month-experience apr">
+        <div class="container">
+            <h1>April: Saint Tyagaraja</h1>
+            <div class="content-card">
+                <p>The crown jewel of Carnatic music. His every breath was a Rama Nama. Deeply immersive musical journey.</p>
+                <div class="audio-wrap"><audio controls loop><source src="#" type="audio/mpeg"></audio></div>
+            </div>
+        </div>
+        <a href="javascript:void(0)" onclick="promptScan('May')" class="scan-next">Next Month: Scan QR &rsaquo;</a>
+    </section>
+
+    <section id="dec" class="month-experience dec">
+        <div class="container">
+            <h1>December: Yourself</h1>
+            <div class="content-card" style="text-align:center;">
+                <h2 style="font-family:'Cinzel';">The Mirror of the Soul</h2>
+                <p>After a year of following the saints, look within. The same light that shone through them shines in you.</p>
+                <p><i>Feedback: @swetch_art & Sai_prema_photography</i></p>
+            </div>
+        </div>
+        <a href="?month=jan" class="scan-next">Restart Journey &rsaquo;</a>
+    </section>
+
+    <script>
+        // Immersive Background Elements logic
+        function createParticles() {
+            const sections = document.querySelectorAll('.month-experience');
+            sections.forEach(s => {
+                for(let i=0; i<5; i++) {
+                    let p = document.createElement('div');
+                    p.className = 'floating-element';
+                    p.innerHTML = '✦';
+                    p.style.left = Math.random() * 100 + 'vw';
+                    p.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                    p.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                    s.appendChild(p);
+                }
+            });
+        }
+
+        function unlockMonth() {
+            const params = new URLSearchParams(window.location.search);
+            const monthKey = params.get('month');
+            if (monthKey) {
+                document.getElementById('lock-screen').style.display = 'none';
+                const target = document.getElementById(monthKey);
+                if (target) {
+                    target.style.display = 'block';
+                    document.body.style.backgroundColor = getComputedStyle(target).backgroundColor;
+                }
+            }
+        }
+
+        function promptScan(next) {
+            alert(`The journey continues... Open your camera and scan the QR code for ${next} on your physical calendar to unlock the next chapter!`);
+        }
+
+        window.onload = () => { createParticles(); unlockMonth(); };
+    </script>
+</body>
+</html>
